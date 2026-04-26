@@ -1,0 +1,17 @@
+{
+  "name": "Instagram",
+  "short_name": "Instagram",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "./icon-logo.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ]
+}
