@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TikTok</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <style>
+        body { margin: 0; padding: 0; background-color: #000; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: white; text-align: center; }
+        .spinner { width: 40px; height: 40px; border: 4px solid rgba(255, 255, 255, 0.1); border-left-color: #fe2c55; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 20px; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .error-container { display: none; padding: 20px; }
+        h1 { font-size: 1.2rem; margin-bottom: 10px; }
+        p { font-size: 0.9rem; color: #8a8a8e; }
+    </style>
+</head>
+<body>
+    <div id="loader"><div class="spinner"></div></div>
+    <div id="error" class="error-container">
+        <h1>Service Unavailable</h1>
+        <p>The app is currently undergoing scheduled maintenance. Please check back later.</p>
+        <p style="font-size: 0.7rem; margin-top: 20px;">Error Code: 503-TK-TIMEOUT</p>
+    </div>
+    <script>
+        setTimeout(() => {
+            document.getElementById('loader').style.display = 'none';
+            document.getElementById('error').style.display = 'block';
+        }, 3000);
+
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js', { scope: './' });
+        }
+    </script>
+</body>
+</html>

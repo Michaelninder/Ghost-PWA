@@ -2,71 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Service Update</title>
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#000000">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghost Apps Directory</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #000; /* Use #000 for TikTok, #f0f2f5 for Facebook */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            color: white;
-            text-align: center;
-        }
-
-        .spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid rgba(255, 255, 255, 0.1);
-            border-left-color: #fe2c55; /* TikTok Red */
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 20px;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        .error-container {
-            display: none;
-            padding: 20px;
-        }
-
-        h1 { font-size: 1.2rem; margin-bottom: 10px; }
-        p { font-size: 0.9rem; color: #8a8a8e; }
+        body { font-family: sans-serif; text-align: center; padding: 50px; background: #f4f4f9; }
+        .card { background: white; padding: 20px; border-radius: 8px; margin: 20px auto; max-width: 300px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        a { text-decoration: none; color: white; display: block; padding: 10px; border-radius: 5px; font-weight: bold; }
+        .btn-tiktok { background: #000; }
+        .btn-facebook { background: #1877F2; }
     </style>
 </head>
 <body>
+    <h1>Ghost Apps Directory</h1>
+    <p>Select an app below to view the simulator.</p>
 
-    <div id="loader">
-        <div class="spinner"></div>
+    <div class="card">
+        <h2>TikTok</h2>
+        <a href="tiktok/" class="btn-tiktok">Open TikTok Simulator</a>
     </div>
 
-    <div id="error" class="error-container">
-        <h1>Service Unavailable</h1>
-        <p>The app is currently undergoing scheduled maintenance. Please check back later.</p>
-        <p style="font-size: 0.7rem; margin-top: 20px;">Error Code: 503-APP-TIMEOUT</p>
+    <div class="card">
+        <h2>Facebook</h2>
+        <a href="facebook/" class="btn-facebook">Open Facebook Simulator</a>
     </div>
-
-    <script>
-        // Simulate a failed connection after 3 seconds
-        setTimeout(() => {
-            document.getElementById('loader').style.display = 'none';
-            document.getElementById('error').style.display = 'block';
-        }, 3000);
-
-        // Register Service Worker for PWA compliance
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js');
-        }
-    </script>
 </body>
 </html>

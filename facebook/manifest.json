@@ -1,0 +1,17 @@
+{
+  "name": "Facebook",
+  "short_name": "Facebook",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "theme_color": "#1877F2",
+  "background_color": "#f0f2f5",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/124/124010.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ]
+}

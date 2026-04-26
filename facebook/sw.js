@@ -1,7 +1,7 @@
 self.addEventListener('install', (e) => {
-  console.log('Ghost App Installed');
+  self.skipWaiting();
 });
 
 self.addEventListener('fetch', (e) => {
-  // Just serves the app offline
+  // Pass through - allows the glitch page to function
 });
